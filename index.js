@@ -18,13 +18,13 @@ bot.on('message', async msg => {
                 await bot.sendSticker(chatId, 'https://tlgrm.ru/_/stickers/ea5/382/ea53826d-c192-376a-b766-e5abc535f1c9/7.webp')
                 return bot.sendMessage(chatId, `Вітаю в талеграм боті `);
             }
-            if (text === '/info') {
-                const user = await UserModel.findOne({chatId})
-                return bot.sendMessage(chatId, `Тебя зовут ${msg.from.first_name} ${msg.from.last_name});
-            }
-            if (text === '/game') {
-                return startGame(chatId);
-            }
+            // if (text === '/info') {
+            //     const user = await UserModel.findOne({chatId})
+            //     return bot.sendMessage(chatId, `Тебя зовут ${msg.from.first_name} ${msg.from.last_name});
+            // }
+            // if (text === '/game') {
+            //     return startGame(chatId);
+            // }
             return bot.sendMessage(chatId, 'Я тебя не понимаю, попробуй еще раз!)');
         } catch (e) {
             return bot.sendMessage(chatId, 'Произошла какая то ошибочка!)');
