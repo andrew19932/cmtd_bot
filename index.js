@@ -3,8 +3,8 @@
 const telegram = require('node-telegram-bot-api')
 
 // const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
-const UserModel = require('./models');
-const token = '5397416186:AAEJ0k3OV8lBkckoVon1bio127fmwIrpyyY'
+// const UserModel = require('./models');
+const token = process.env.TELEGRAM_TOKEN
 
 const bot = new telegram(token, {polling: true})
 
