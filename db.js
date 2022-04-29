@@ -22,7 +22,7 @@ module.exports = new Sequelize(
     'postgrestest',
     {
         host: 'postgrestest.cahtky519btu.us-east-2.rds.amazonaws.com',
-        port: '6432',
+        port: '5432',
         dialect: 'postgres'
     }
 )
