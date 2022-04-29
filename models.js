@@ -8,6 +8,6 @@ const User = sequelize.define('user', {
     right: {type: DataTypes.INTEGER, defaultValue: 0},
     wrong: {type: DataTypes.INTEGER, defaultValue: 0},
 })
-
 // module.exports = User;
+return User;
 };
