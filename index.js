@@ -3,12 +3,25 @@
 const telegram = require('node-telegram-bot-api')
 
 // const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
-// const UserModel = require('./models');
+const sequelize = require('./db');
+const UserModel = require('./models');
 const token = process.env.TELEGRAM_TOKEN
 
 const bot = new telegram(token, {polling: true})
 
-const start = async () => {
+      const start = async () => {
+        try {
+          await sequelize.authenticate()
+          await sequelize.sync()
+      } catch (e) {
+          console.log('Подключение к бд сломалось', e)
+      }
+
+      bot.setMyCommands([
+          {command: '/start', description: 'Начальное приветствие'},
+          // {command: '/info', description: 'Получить информацию о пользователе'},
+          // {command: '/game', description: 'Игра угадай цифру'},
+      ])
 
       bot.on('message', async msg => {
               const text = msg.text;
