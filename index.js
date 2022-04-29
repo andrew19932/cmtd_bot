@@ -18,7 +18,9 @@ const bot = new telegram(token, {polling: true})
       }
 
       bot.setMyCommands([
-          {command: '/start', description: 'Начальное приветствие'},
+          {command: '/start', description: 'Домашня сторінка'},
+          {command: '/list', description: 'Список доступних лікарів'},
+          {command: '/therapy', description: 'Терапія'},
           // {command: '/info', description: 'Получить информацию о пользователе'},
           // {command: '/game', description: 'Игра угадай цифру'},
       ])
