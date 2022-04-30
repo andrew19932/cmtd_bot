@@ -20,8 +20,9 @@ const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
       bot.setMyCommands([
           {command: '/start', description: 'Домашня сторінка'},
           // {command: '/list', description: 'Список доступних лікарів'},
+          {command: '/hinecology_help', description: 'Акушерсько-гінекологічна домопога'},
+          {command: '/women_consultation', description: 'Жіноча консультація'},
           {command: '/therapy', description: 'Терапія'},
-          {command: '/women_consultation', description: 'Секція жіночої консультації'},
           {command: '/contacts', description: 'Контактні дані'},
           // {command: '/info', description: 'Получить информацию о пользователе'},
           // {command: '/game', description: 'Игра угадай цифру'},
@@ -35,17 +36,20 @@ const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
                   if (text === '/start') {
                       // await UserModel.create({chatId})
                       // await bot.sendSticker(chatId, 'https://vmklcmd.lic.org.ua/wp-content/uploads/2021/04/banner-cruz-azul-saude-1-1.jpg')
-                      return bot.sendMessage(chatId, `Вітаємо в телеграм боті Центру матері та дитини`);
+                      return bot.sendMessage(chatId, `Вітаємо в телеграм-боті КПМ "ВМКЛ" ЦМ та Д.\nВ розділі меню оберіть пункт, який Вас цікавить:`);
                   }
                   // if (text === '/info') {
                   //     const user = await UserModel.findOne({chatId})
                   //     return bot.sendMessage(chatId, `Тебя зовут ${msg.from.first_name} ${msg.from.last_name});
                   // }
+                  if (text === '/hinecology_help') {
+                      return bot.sendMessage(chatId, `Акушерсько-гінекологічна домопога.\nЛікарі центру проводять комплексну роботу з кожним пацієнтом, що включає консультацію, діагностику на сучасному обладнанні. Це дозволяє підібрати підходи для ефективного лікування.\nКонтактна інформація - mlcentr@ukr.net`);
+                  }
+                  if (text === '/hinecology_help') {
+                      return bot.sendMessage(chatId, `Акушерсько-гінекологічна домопога.\nЛікарі центру проводять комплексну роботу з кожним пацієнтом, що включає консультацію, діагностику на сучасному обладнанні. Це дозволяє підібрати підходи для ефективного лікування.\nКонтактна інформація - mlcentr@ukr.net`);
+                  }
                   if (text === '/therapy') {
                       return bot.sendMessage(chatId, `Секція терапії.\nТерапевт Вівчарик Налатія Василівна.\nКонтактна інформація - @VivcharykNV`);
-                  }
-                  if (text === '/women_consultation') {
-                      return bot.sendMessage(chatId, `Секція жіночої консультації.\nЛікарі центру проводять комплексну роботу з кожним пацієнтом, що включає консультацію, діагностику на сучасному обладнанні. Це дозволяє підібрати підходи для ефективного лікування. Контактна інформація - mlcentr@ukr.net`);
                   }
                   if (text === '/contacts') {
                       return bot.sendMessage(chatId, ` Директор	Присяжнюк Володимир Петрович	65 11 12 \n
