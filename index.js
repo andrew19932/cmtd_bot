@@ -19,7 +19,6 @@ const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
 
       bot.setMyCommands([
           {command: '/start', description: 'Домашня сторінка'},
-          // {command: '/list', description: 'Список доступних лікарів'},
           {command: '/ginecology_help', description: 'Акушерсько-гінекологічна домопога'},
           {command: '/women_consultation', description: 'Жіноча консультація'},
           {command: '/therapy', description: 'Терапія'},
@@ -70,7 +69,7 @@ const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
               }
 
           });
-      bot.onText(/\/editable/, function onEditableText(msg) {
+       bot.onText(/\/editable/, function onEditableText(msg) {
             const opts = {
               reply_markup: {
                 inline_keyboard: [
