@@ -137,7 +137,7 @@ const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
                   break
             }
 
-
+          console.log('text');
           bot.answerCallbackQuery(callbackQuery.id)
                 .then(() => bot.sendMessage(msg.chat.id, text));
 
