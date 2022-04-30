@@ -70,7 +70,7 @@ const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
               }
 
           });
-          bot.onText(/\/editable/, function onEditableText(msg) {
+      bot.onText(/\/editable/, function onEditableText(msg) {
             const opts = {
               reply_markup: {
                 inline_keyboard: [
@@ -87,7 +87,7 @@ const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
             };
             bot.sendMessage(msg.from.id, 'Original Text', opts);
           });
-          bot.on('callback_query', function onCallbackQuery(callbackQuery) {
+      bot.on('callback_query', function onCallbackQuery(callbackQuery) {
             const action = callbackQuery.data;
             const msg = callbackQuery.message;
             const opts = {
