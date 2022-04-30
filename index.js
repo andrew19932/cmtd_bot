@@ -2,10 +2,6 @@
 
 const TelegramBot = require('node-telegram-bot-api');
 
-// const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
-// const sequelize = require('./db');
-// const UserModel = require('./models');
-// const token = new telegram(process.env.TELEGRAM_TOKEN)
 const COMMAND_TEMPLATE1 = 'template1';
 const COMMAND_TEMPLATE2 = 'template2';
 const COMMAND_TEMPLATE3 = 'template3';
@@ -50,8 +46,6 @@ bot.setMyCommands([
   {command: '/women_consultation', description: 'Жіноча консультація'},
   {command: '/therapy', description: 'Терапія'},
   {command: '/contacts', description: 'Контактні дані'},
-  // {command: '/info', description: 'Получить информацию о пользователе'},
-  // {command: '/game', description: 'Игра угадай цифру'},
 ])
 
 function process_message(text, chatId) {
@@ -62,7 +56,6 @@ function process_message(text, chatId) {
                   "inline_keyboard": inline_keyboard
               }
           });
-          // return bot.sendMessage(chatId, `Вітаємо в телеграм-боті КПМ "ВМКЛ" ЦМ та Д.\nВ розділі меню оберіть пункт, який Вас цікавить:`);
       }
       if (text === '/hinecology_help') {
           return bot.sendMessage(chatId, `Акушерсько-гінекологічна домопога.\nЛікарі центру проводять комплексну роботу з кожним пацієнтом, що включає консультацію, діагностику на сучасному обладнанні. Це дозволяє підібрати підходи для ефективного лікування.\nКонтактна інформація - mlcentr@ukr.net`);
@@ -131,47 +124,4 @@ bot.on('callback_query', function onCallbackQuery(callbackQuery) {
                                      \nГоловний бухгалтер	Костюк Людмила Володимирівна	65 11 19\n
                                      \nНачальник відділу кадрів	Ключківська Тетяна Володимирівна	65 11 36\n`);
   }
-  // switch (query.data) {
-  //       case COMMAND_TEMPLATE1:
-  //           text = 'test1';
-  //           break
-  //       case COMMAND_TEMPLATE2:
-  //           text =  'test2';
-  //           break
-  //       // case COMMAND_TEMPLATE3:
-  //       //     text =  '/ginecology_help';
-  //       //     break
-  //       // case COMMAND_TEMPLATE4:
-  //       //     text = '/therapy';
-  //       //     break
-  //       // case COMMAND_TEMPLATE5:
-  //       //     text = '/women_consultation';
-  //       //     break
-  //     }
-
-  // bot.sendMessage(chatId, text);
-// bot.on('callback_query', function onCallbackQuery(callbackQuery) {
-//     const msg = callbackQuery.message;
-//     let text;
-//
-//     switch (query.data) {
-//       case COMMAND_TEMPLATE1:
-//           text = '/start';
-//           break
-//       case COMMAND_TEMPLATE2:
-//           text =  '/hinecology_help';
-//           break
-//       case COMMAND_TEMPLATE3:
-//           text =  '/ginecology_help';
-//           break
-//       case COMMAND_TEMPLATE4:
-//           text = '/therapy';
-//           break
-//       case COMMAND_TEMPLATE5:
-//           text = '/women_consultation';
-//           break
-//     }
-
-
-  // process_message(text, msg.chat.id);
 });
