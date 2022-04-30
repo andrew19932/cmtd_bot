@@ -42,10 +42,10 @@ const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
                   //     return bot.sendMessage(chatId, `Тебя зовут ${msg.from.first_name} ${msg.from.last_name});
                   // }
                   if (text === '/therapy') {
-                      return bot.sendMessage(chatId, `Секція терапії.\n Терапевт Вівчарик Налатія Василівна.\n Контактна інформація - @VivcharykNV`);
+                      return bot.sendMessage(chatId, `Секція терапії.\nТерапевт Вівчарик Налатія Василівна.\nКонтактна інформація - @VivcharykNV`);
                   }
                   if (text === '/women_consultation') {
-                      return bot.sendMessage(chatId, `Секція жіночої консультації.\n Лікарі центру проводять комплексну роботу з кожним пацієнтом, що включає консультацію, діагностику на сучасному обладнанні. Це дозволяє підібрати підходи для ефективного лікування. Контактна інформація - mlcentr@ukr.net`);
+                      return bot.sendMessage(chatId, `Секція жіночої консультації.\nЛікарі центру проводять комплексну роботу з кожним пацієнтом, що включає консультацію, діагностику на сучасному обладнанні. Це дозволяє підібрати підходи для ефективного лікування. Контактна інформація - mlcentr@ukr.net`);
                   }
                   if (text === '/contacts') {
                       return bot.sendMessage(chatId, ` Директор	Присяжнюк Володимир Петрович	65 11 12 \n
