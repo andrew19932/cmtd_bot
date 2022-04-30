@@ -17,15 +17,11 @@ bot.setMyCommands([
     {command: WOMEN_CONSULTATION, description: 'Жіноча консультація'},
     {command: THERAPY, description: 'Терапія'},
     {command: CONTACTS, description: 'Контактні дані'},
-    // {command: '/info', description: 'Получить информацию о пользователе'},
-    // {command: '/game', description: 'Игра угадай цифру'},
 ])
 
 function process_message(text, chatId) {
     try {
         if (text === '/start') {
-            // await UserModel.create({chatId})
-            // await bot.sendSticker(chatId, 'https://vmklcmd.lic.org.ua/wp-content/uploads/2021/04/banner-cruz-azul-saude-1-1.jpg')
             bot.sendMessage(chatId, "Вітаємо в телеграм-боті КПМ ВМКЛ ЦМ та Д.\nВ розділі меню оберіть пункт, який Вас цікавить:", {
                 "reply_markup": {
                     "inline_keyboard": [
