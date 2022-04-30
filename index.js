@@ -21,7 +21,8 @@ const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
           {command: '/start', description: 'Домашня сторінка'},
           {command: '/list', description: 'Список доступних лікарів'},
           {command: '/therapy', description: 'Терапія'},
-          {command: '/жіноча консультація', description: 'Секція жіночої консультації'},
+          {command: '/жіноча_консультація', description: 'Секція жіночої консультації'},
+          {command: '/контактні_дані', description: 'Контактні дані'},
           // {command: '/info', description: 'Получить информацию о пользователе'},
           // {command: '/game', description: 'Игра угадай цифру'},
       ])
@@ -43,10 +44,10 @@ const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
                   if (text === '/therapy') {
                       return bot.sendMessage(chatId, `Секція терапії. Терапевт Вівчарик Налатія Василівна. Контактна інформація - @VivcharykNV`);
                   }
-                  if (text === '/жіноча консультація') {
+                  if (text === '/жіноча_консультація') {
                       return bot.sendMessage(chatId, `Секція жіночої консультації. Лікарі центру проводять комплексну роботу з кожним пацієнтом, що включає консультацію, діагностику на сучасному обладнанні. Це дозволяє підібрати підходи для ефективного лікування. Контактна інформація - mlcentr@ukr.net`);
                   }
-                  if (text === '/контактні дані') {
+                  if (text === '/контактні_дані') {
                       return bot.sendMessage(chatId, ` Директор	Присяжнюк Володимир Петрович	65 11 12
                                                        Медичний директор	Бардаш Леся Юріївна	65 11 22
                                                        Заступник медичного директора з педіатрії	Опіопченко Світлана Федорівна	65 11 12
