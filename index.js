@@ -138,7 +138,10 @@ const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
             }
 
 
-          process_message(text, msg, msg.chat.id);
+          bot.answerCallbackQuery(callbackQuery.id)
+                .then(() => bot.sendMessage(msg.chat.id, text));
+
+          //process_message(text, msg, msg.chat.id);
           });
 //
 // const main = async () => {
