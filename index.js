@@ -117,7 +117,7 @@ bot.on('callback_query', function onCallbackQuery(callbackQuery) {
 
   if (action === COMMAND_TEMPLATE2) {
     text === 'Секція жіночої консультації.\nУ нас працюють кваліфіковані акушери-гінекологи, яким Ви можете довіритися. Лікарі з дуже великим стажем роботи, що пройшли тренінги, які володіють усіма сучасними методами прийому пологів\nКонтактна інформація - @VivcharykNV`';
-    return bot.sendMessage(chatId, text)
+    return bot.sendMessage(chat_id, text)
   }
   // switch (query.data) {
   //       case COMMAND_TEMPLATE1:
