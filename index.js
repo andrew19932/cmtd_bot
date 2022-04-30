@@ -6,7 +6,38 @@ const telegram = require('node-telegram-bot-api')
 // const sequelize = require('./db');
 // const UserModel = require('./models');
 // const token = new telegram(process.env.TELEGRAM_TOKEN)
+const COMMAND_TEMPLATE1 = 'template1';
+const COMMAND_TEMPLATE2 = 'template2';
+const COMMAND_TEMPLATE3 = 'template3';
+const COMMAND_TEMPLATE4 = 'template4';
+const COMMAND_TEMPLATE5 = 'template5';
+let inline_keyboard = [
+    [
+         {
+            text: 'Домашня сторінка',
+            callback_data: COMMAND_TEMPLATE1
+        },
+        {
+            text: 'Акушерсько-гінекологічна домопога',
+            callback_data: COMMAND_TEMPLATE2
+        }
 
+    ],[
+        {
+            text: 'Жіноча консультація',
+            callback_data: COMMAND_TEMPLATE3
+        },
+        {
+            text: 'Терапія',
+            callback_data: COMMAND_TEMPLATE4
+        },
+        {
+            text: 'Контактні дані',
+            callback_data: COMMAND_TEMPLATE4
+        }
+
+    ]
+];
 const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
 
       const start = async () => {
@@ -37,7 +68,7 @@ const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
                       // await bot.sendSticker(chatId, 'https://vmklcmd.lic.org.ua/wp-content/uploads/2021/04/banner-cruz-azul-saude-1-1.jpg')
                       return bot.sendMessage(msg.chat.id, "Вітаємо в телеграм-боті КПМ ВМКЛ ЦМ та Д.\nВ розділі меню оберіть пункт, який Вас цікавить:", {
                           "reply_markup": {
-                              "keyboard": [["Sample text", "Second sample"],   ["Keyboard"], ["I'm robot"]]
+                              "inline_keyboard": inline_keyboard
                               }
                           });
                       // return bot.sendMessage(chatId, `Вітаємо в телеграм-боті КПМ "ВМКЛ" ЦМ та Д.\nВ розділі меню оберіть пункт, який Вас цікавить:`);
@@ -74,23 +105,7 @@ const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
               }
 
           });
-       bot.onText(/\/editable/, function onEditableText(msg) {
-            const opts = {
-              reply_markup: {
-                inline_keyboard: [
-                  [
-                    {
-                      text: 'Edit Text',
-                       // we shall check for this value when we listen
-                       // for "callback_query"
-                      callback_data: 'edit'
-                    }
-                  ]
-                ]
-              }
-            };
-            bot.sendMessage(msg.from.id, 'Original Text', opts);
-          });
+       
       bot.on('callback_query', function onCallbackQuery(callbackQuery) {
             const action = callbackQuery.data;
             const msg = callbackQuery.message;
@@ -100,10 +115,24 @@ const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
             };
             let text;
 
-            if (action === 'edit') {
-              text = 'Edited Text';
+            switch (query.data) {
+              case COMMAND_TEMPLATE1:
+                  text = '/start';
+                  break
+              case COMMAND_TEMPLATE2:
+                  text =  '/hinecology_help';
+                  break
+              case COMMAND_TEMPLATE3:
+                  text =  '/ginecology_help';
+                  break
+              case COMMAND_TEMPLATE4:
+                  text = '/therapy';
+                  break
+              case COMMAND_TEMPLATE5:
+                  text = '/women_consultation';
+                  break
             }
-
+            
             bot.editMessageText(text, opts);
           });
 //
