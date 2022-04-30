@@ -68,6 +68,6 @@ const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
 //   const randomTip = await getRandomTip();
 //   bot.sendMessage(process.env.TELEGRAM_CHAT_ID, randomTip);
 //   console.log(randomTip);
-// }
+}
 start()
 // main();
