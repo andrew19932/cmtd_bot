@@ -20,7 +20,7 @@ const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
       bot.setMyCommands([
           {command: '/start', description: 'Домашня сторінка'},
           // {command: '/list', description: 'Список доступних лікарів'},
-          {command: '/hinecology_help', description: 'Акушерсько-гінекологічна домопога'},
+          {command: '/ginecology_help', description: 'Акушерсько-гінекологічна домопога'},
           {command: '/women_consultation', description: 'Жіноча консультація'},
           {command: '/therapy', description: 'Терапія'},
           {command: '/contacts', description: 'Контактні дані'},
@@ -45,11 +45,14 @@ const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
                   if (text === '/hinecology_help') {
                       return bot.sendMessage(chatId, `Акушерсько-гінекологічна домопога.\nЛікарі центру проводять комплексну роботу з кожним пацієнтом, що включає консультацію, діагностику на сучасному обладнанні. Це дозволяє підібрати підходи для ефективного лікування.\nКонтактна інформація - mlcentr@ukr.net`);
                   }
-                  if (text === '/hinecology_help') {
+                  if (text === '/ginecology_help') {
                       return bot.sendMessage(chatId, `Акушерсько-гінекологічна домопога.\nЛікарі центру проводять комплексну роботу з кожним пацієнтом, що включає консультацію, діагностику на сучасному обладнанні. Це дозволяє підібрати підходи для ефективного лікування.\nКонтактна інформація - mlcentr@ukr.net`);
                   }
                   if (text === '/therapy') {
                       return bot.sendMessage(chatId, `Секція терапії.\nТерапевт Вівчарик Налатія Василівна.\nКонтактна інформація - @VivcharykNV`);
+                  }
+                  if (text === '/women_consultation') {
+                      return bot.sendMessage(chatId, `Секція жіночої консультації.\nУ нас працюють кваліфіковані акушери-гінекологи, яким Ви можете довіритися. Лікарі з дуже великим стажем роботи, що пройшли тренінги, які володіють усіма сучасними методами прийому пологів\nКонтактна інформація - @VivcharykNV`);
                   }
                   if (text === '/contacts') {
                       return bot.sendMessage(chatId, ` Директор	Присяжнюк Володимир Петрович	65 11 12 \n
@@ -67,6 +70,23 @@ const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
               }
 
           });
+          bot.onText(/\/editable/, function onEditableText(msg) {
+            const opts = {
+              reply_markup: {
+                inline_keyboard: [
+                  [
+                    {
+                      text: 'Edit Text',
+                       // we shall check for this value when we listen
+                       // for "callback_query"
+                      callback_data: 'edit'
+                    }
+                  ]
+                ]
+              }
+            };
+            bot.sendMessage(msg.from.id, 'Original Text', opts);
+          });
           bot.on('callback_query', function onCallbackQuery(callbackQuery) {
             const action = callbackQuery.data;
             const msg = callbackQuery.message;
@@ -76,8 +96,8 @@ const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
             };
             let text;
 
-            if (action === '1') {
-              text = 'You hit button 1';
+            if (action === 'edit') {
+              text = 'Edited Text';
             }
 
             bot.editMessageText(text, opts);
