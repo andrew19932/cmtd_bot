@@ -116,8 +116,9 @@ bot.on('callback_query', function onCallbackQuery(callbackQuery) {
   let text;
 
   if (action === COMMAND_TEMPLATE2) {
-    text === '/contacts';
+    text === 'Секція жіночої консультації.\nУ нас працюють кваліфіковані акушери-гінекологи, яким Ви можете довіритися. Лікарі з дуже великим стажем роботи, що пройшли тренінги, які володіють усіма сучасними методами прийому пологів\nКонтактна інформація - @VivcharykNV`';
   }
+  bot.sendMessage(chatId, text);
 // bot.on('callback_query', function onCallbackQuery(callbackQuery) {
 //     const msg = callbackQuery.message;
 //     let text;
@@ -141,5 +142,5 @@ bot.on('callback_query', function onCallbackQuery(callbackQuery) {
 //     }
 
 
-  process_message(text, msg.chat.id);
+  // process_message(text, msg.chat.id);
 });
