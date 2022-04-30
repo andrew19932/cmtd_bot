@@ -58,10 +58,7 @@ const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
           // {command: '/game', description: 'Игра угадай цифру'},
       ])
 
-      bot.on('message', async msg => {
-              const text = msg.text;
-              const chatId = msg.chat.id;
-
+          function process_message(text, msg, chatId) {
               try {
                   if (text === '/start') {
                       // await UserModel.create({chatId})
@@ -69,8 +66,8 @@ const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
                       return bot.sendMessage(msg.chat.id, "Вітаємо в телеграм-боті КПМ ВМКЛ ЦМ та Д.\nВ розділі меню оберіть пункт, який Вас цікавить:", {
                           "reply_markup": {
                               "inline_keyboard": inline_keyboard
-                              }
-                          });
+                          }
+                      });
                       // return bot.sendMessage(chatId, `Вітаємо в телеграм-боті КПМ "ВМКЛ" ЦМ та Д.\nВ розділі меню оберіть пункт, який Вас цікавить:`);
                   }
                   // if (text === '/info') {
@@ -103,6 +100,13 @@ const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
               } catch (e) {
                   return bot.sendMessage(chatId, 'Виникла помилка!)');
               }
+          }
+
+          bot.on('message', async msg => {
+              const text = msg.text;
+              const chatId = msg.chat.id;
+
+              return process_message(text, msg, chatId);
 
           });
        
@@ -132,8 +136,9 @@ const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
                   text = '/women_consultation';
                   break
             }
-            
-            bot.editMessageText(text, opts);
+
+
+          process_message(text, msg, msg.chat.id);
           });
 //
 // const main = async () => {
