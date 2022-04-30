@@ -116,7 +116,7 @@ bot.on('callback_query', function onCallbackQuery(callbackQuery) {
   let text;
 
   if (action === COMMAND_TEMPLATE2) {
-    text = 'Edited Text';
+    text === '/contacts';
   }
 // bot.on('callback_query', function onCallbackQuery(callbackQuery) {
 //     const msg = callbackQuery.message;
