@@ -160,5 +160,5 @@ bot.on('callback_query', function onCallbackQuery(callbackQuery) {
 //     }
 
 
-  process_message(text, msg.chat.id);
+  // process_message(text, msg.chat.id);
 });
