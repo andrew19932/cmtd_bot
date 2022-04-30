@@ -88,5 +88,5 @@ bot.on('callback_query', function onCallbackQuery(callbackQuery) {
     text = 'Edited Text';
   }
 
-  bot.editMessageText(text, opts);
+  bot.sendMessage(msg.chat.id, 'test Text');
 });
