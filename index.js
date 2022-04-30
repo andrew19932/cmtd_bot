@@ -5,9 +5,9 @@ const telegram = require('node-telegram-bot-api')
 // const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
 const sequelize = require('./db');
 const UserModel = require('./models');
-const token = '5397416186:AAEJ0k3OV8lBkckoVon1bio127fmwIrpyyY'
+// const token = new telegram(process.env.TELEGRAM_TOKEN)
 
-const bot = new telegram(token, {polling: true})
+const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
 
       const start = async () => {
         try {
@@ -31,8 +31,8 @@ const bot = new telegram(token, {polling: true})
 
               try {
                   if (text === '/start') {
-                      await UserModel.create({chatId})
-                      // await bot.sendSticker(chatId, 'https://tlgrm.ru/_/stickers/ea5/382/ea53826d-c192-376a-b766-e5abc535f1c9/7.webp')
+                      // await UserModel.create({chatId})
+                      await bot.sendSticker(chatId, 'https://tlgrm.ru/_/stickers/ea5/382/ea53826d-c192-376a-b766-e5abc535f1c9/7.webp')
                       return bot.sendMessage(chatId, `Вітаю в талеграм боті `);
                   }
                   // if (text === '/info') {
