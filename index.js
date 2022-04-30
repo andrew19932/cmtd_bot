@@ -40,7 +40,7 @@ const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
                   //     return bot.sendMessage(chatId, `Тебя зовут ${msg.from.first_name} ${msg.from.last_name});
                   // }
                   if (text === '/therapy') {
-                      return bot.sendMessage(chatId, `Секція терапії `);
+                      return bot.sendMessage(chatId, `Секція терапії. Терапевт Вівчарик Налатія Василівна. Контактна інформація - @VivcharykNV`);
                   }
                   if (text === '/list') {
                       return bot.sendMessage(chatId, `Акушер гінеколог, Педіатр, Терапевт`);

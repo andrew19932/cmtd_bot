@@ -3,7 +3,7 @@ name: "Github Actions Pragmatic Programmer Bot"
 on:
   push:
   schedule:
-    - cron: '0 07 * * *'
+    - cron: '0 */6 * * *'
 
 jobs:
   bot:
