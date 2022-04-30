@@ -9,7 +9,7 @@ const telegram = require('node-telegram-bot-api')
 
 const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
 
-      // const start = async () => {
+      const start = async () => {
       //   try {
       //     await sequelize.authenticate()
       //     await sequelize.sync()
