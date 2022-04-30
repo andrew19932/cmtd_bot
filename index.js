@@ -9,18 +9,19 @@ const telegram = require('node-telegram-bot-api')
 
 const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
 
-      const start = async () => {
-        try {
-          await sequelize.authenticate()
-          await sequelize.sync()
-      } catch (e) {
-          console.log('Подключение к бд сломалось', e)
-      }
+      // const start = async () => {
+      //   try {
+      //     await sequelize.authenticate()
+      //     await sequelize.sync()
+      // } catch (e) {
+      //     console.log('Подключение к бд сломалось', e)
+      // }
 
       bot.setMyCommands([
           {command: '/start', description: 'Домашня сторінка'},
           {command: '/list', description: 'Список доступних лікарів'},
           {command: '/therapy', description: 'Терапія'},
+          {command: '/жіноча консультація', description: 'Секція жіночої консультації'},
           // {command: '/info', description: 'Получить информацию о пользователе'},
           // {command: '/game', description: 'Игра угадай цифру'},
       ])
@@ -42,8 +43,18 @@ const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
                   if (text === '/therapy') {
                       return bot.sendMessage(chatId, `Секція терапії. Терапевт Вівчарик Налатія Василівна. Контактна інформація - @VivcharykNV`);
                   }
-                  if (text === '/list') {
-                      return bot.sendMessage(chatId, `Акушер гінеколог, Педіатр, Терапевт`);
+                  if (text === '/жіноча консультація') {
+                      return bot.sendMessage(chatId, `Секція жіночої консультації. Лікарі центру проводять комплексну роботу з кожним пацієнтом, що включає консультацію, діагностику на сучасному обладнанні. Це дозволяє підібрати підходи для ефективного лікування. Контактна інформація - mlcentr@ukr.net`);
+                  }
+                  if (text === '/контактні дані') {
+                      return bot.sendMessage(chatId, ` Директор	Присяжнюк Володимир Петрович	65 11 12
+                                                       Медичний директор	Бардаш Леся Юріївна	65 11 22
+                                                       Заступник медичного директора з педіатрії	Опіопченко Світлана Федорівна	65 11 12
+                                                       Заступник директора з економічних питань	Дунаєва Ірина Дмитрівна	65 11 20
+                                                       Заступник директора з технічних питань	Руденко Марина Олександрівна	65 11 23
+                                                       Головна медична сестра	Коваль Ірина Анатоліївна	65 11 36
+                                                       Головний бухгалтер	Костюк Людмила Володимирівна	65 11 19
+                                                       Начальник відділу кадрів	Ключківська Тетяна Володимирівна	65 11 36`);
                   }
                   return bot.sendMessage(chatId, 'Не зрозуміла команда спробуй ще раз!)');
               } catch (e) {
@@ -51,23 +62,6 @@ const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
               }
 
           })
-          // Handle callback queries
-      bot.on('callback_query', function onCallbackQuery(callbackQuery) {
-        const action = callbackQuery.data;
-        const msg = callbackQuery.message;
-        const opts = {
-          chat_id: msg.chat.id,
-          message_id: msg.message_id,
-        };
-        let text;
-
-        if (action === 'edit') {
-          text = 'Edited Text';
-        }
-
-        bot.editMessageText(text, opts);
-      });
-}
 //
 // const main = async () => {
 //   const randomTip = await getRandomTip();
