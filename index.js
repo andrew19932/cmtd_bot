@@ -32,7 +32,7 @@ const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
               try {
                   if (text === '/start') {
                       // await UserModel.create({chatId})
-                      await bot.sendSticker(chatId, 'https://vmklcmd.lic.org.ua/wp-content/uploads/2021/04/banner-cruz-azul-saude-1-1.jpg')
+                      // await bot.sendSticker(chatId, 'https://vmklcmd.lic.org.ua/wp-content/uploads/2021/04/banner-cruz-azul-saude-1-1.jpg')
                       return bot.sendMessage(chatId, `Вітаємо в талеграм боті Центру матері та дитини`);
                   }
                   // if (text === '/info') {
@@ -51,6 +51,22 @@ const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
               }
 
           })
+          // Handle callback queries
+      bot.on('callback_query', function onCallbackQuery(callbackQuery) {
+        const action = callbackQuery.data;
+        const msg = callbackQuery.message;
+        const opts = {
+          chat_id: msg.chat.id,
+          message_id: msg.message_id,
+        };
+        let text;
+
+        if (action === 'edit') {
+          text = 'Edited Text';
+        }
+
+        bot.editMessageText(text, opts);
+      });
 }
 //
 // const main = async () => {
