@@ -115,26 +115,27 @@ bot.on('callback_query', function onCallbackQuery(callbackQuery) {
   };
   let text;
 
-  // if (action === COMMAND_TEMPLATE2) {
-  //   text === 'Секція жіночої консультації.\nУ нас працюють кваліфіковані акушери-гінекологи, яким Ви можете довіритися. Лікарі з дуже великим стажем роботи, що пройшли тренінги, які володіють усіма сучасними методами прийому пологів\nКонтактна інформація - @VivcharykNV`';
-  // }
-  switch (query.data) {
-        case COMMAND_TEMPLATE1:
-            text = 'test1';
-            break
-        case COMMAND_TEMPLATE2:
-            text =  'test2';
-            break
-        // case COMMAND_TEMPLATE3:
-        //     text =  '/ginecology_help';
-        //     break
-        // case COMMAND_TEMPLATE4:
-        //     text = '/therapy';
-        //     break
-        // case COMMAND_TEMPLATE5:
-        //     text = '/women_consultation';
-        //     break
-      }
+  if (action === COMMAND_TEMPLATE2) {
+    text === 'Секція жіночої консультації.\nУ нас працюють кваліфіковані акушери-гінекологи, яким Ви можете довіритися. Лікарі з дуже великим стажем роботи, що пройшли тренінги, які володіють усіма сучасними методами прийому пологів\nКонтактна інформація - @VivcharykNV`';
+    return bot.sendMessage(chatId, text)
+  }
+  // switch (query.data) {
+  //       case COMMAND_TEMPLATE1:
+  //           text = 'test1';
+  //           break
+  //       case COMMAND_TEMPLATE2:
+  //           text =  'test2';
+  //           break
+  //       // case COMMAND_TEMPLATE3:
+  //       //     text =  '/ginecology_help';
+  //       //     break
+  //       // case COMMAND_TEMPLATE4:
+  //       //     text = '/therapy';
+  //       //     break
+  //       // case COMMAND_TEMPLATE5:
+  //       //     text = '/women_consultation';
+  //       //     break
+  //     }
 
   // bot.sendMessage(chatId, text);
 // bot.on('callback_query', function onCallbackQuery(callbackQuery) {
