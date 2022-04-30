@@ -35,7 +35,12 @@ const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
                   if (text === '/start') {
                       // await UserModel.create({chatId})
                       // await bot.sendSticker(chatId, 'https://vmklcmd.lic.org.ua/wp-content/uploads/2021/04/banner-cruz-azul-saude-1-1.jpg')
-                      return bot.sendMessage(chatId, `Вітаємо в телеграм-боті КПМ "ВМКЛ" ЦМ та Д.\nВ розділі меню оберіть пункт, який Вас цікавить:`);
+                      return bot.sendMessage(msg.chat.id, "Вітаємо в телеграм-боті КПМ ВМКЛ ЦМ та Д.\nВ розділі меню оберіть пункт, який Вас цікавить:", {
+                          "reply_markup": {
+                              "keyboard": [["Sample text", "Second sample"],   ["Keyboard"], ["I'm robot"]]
+                              }
+                          });
+                      // return bot.sendMessage(chatId, `Вітаємо в телеграм-боті КПМ "ВМКЛ" ЦМ та Д.\nВ розділі меню оберіть пункт, який Вас цікавить:`);
                   }
                   // if (text === '/info') {
                   //     const user = await UserModel.findOne({chatId})
