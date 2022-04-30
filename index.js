@@ -108,17 +108,17 @@ bot.on('message', async msg => {
 
 bot.on('callback_query', function onCallbackQuery(callbackQuery) {
     const msg = callbackQuery.message;
-    let text;
+    let command;
 
     switch (query.data) {
       // case 'template1':
       //     text = '/start';
       //     break
-      case COMMAND_TEMPLATE2:
-          text =  '/hinecology_help';
-          break
+      // if case COMMAND_TEMPLATE2:
+      //     return text =  '/hinecology_help';
+          // break
       case COMMAND_TEMPLATE3:
-          text =  '/ginecology_help';
+          command =  '/ginecology_help';
           break
       case COMMAND_TEMPLATE4:
           text = '/therapy';
