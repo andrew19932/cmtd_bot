@@ -3,8 +3,8 @@
 const telegram = require('node-telegram-bot-api')
 
 // const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
-const sequelize = require('./db');
-const UserModel = require('./models');
+// const sequelize = require('./db');
+// const UserModel = require('./models');
 // const token = new telegram(process.env.TELEGRAM_TOKEN)
 
 const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
@@ -31,9 +31,9 @@ const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
 
               try {
                   if (text === '/start') {
-                      await UserModel.create({chatId})
-                      await bot.sendSticker(chatId, 'https://tlgrm.ru/_/stickers/ea5/382/ea53826d-c192-376a-b766-e5abc535f1c9/7.webp')
-                      return bot.sendMessage(chatId, `Вітаю в талеграм боті `);
+                      // await UserModel.create({chatId})
+                      await bot.sendSticker(chatId, 'https://vmklcmd.lic.org.ua/wp-content/uploads/2021/04/banner-cruz-azul-saude-1-1.jpg')
+                      return bot.sendMessage(chatId, `Вітаємо в талеграм боті Центру матері та дитини`);
                   }
                   // if (text === '/info') {
                   //     const user = await UserModel.findOne({chatId})
@@ -41,6 +41,9 @@ const bot = new telegram(process.env.TELEGRAM_TOKEN, {polling: true})
                   // }
                   if (text === '/therapy') {
                       return bot.sendMessage(chatId, `Секція терапії `);
+                  }
+                  if (text === '/list') {
+                      return bot.sendMessage(chatId, `Акушер гінеколог, Педіатр, Терапевт`);
                   }
                   return bot.sendMessage(chatId, 'Не зрозуміла команда спробуй ще раз!)');
               } catch (e) {
