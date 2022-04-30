@@ -105,15 +105,15 @@ bot.on('message', async msg => {
   return process_message(text, chatId);
 
 });
-       
+
 bot.on('callback_query', function onCallbackQuery(callbackQuery) {
     const msg = callbackQuery.message;
     let text;
 
     switch (query.data) {
-      case COMMAND_TEMPLATE1:
-          text = '/start';
-          break
+      // case 'template1':
+      //     text = '/start';
+      //     break
       case COMMAND_TEMPLATE2:
           text =  '/hinecology_help';
           break
