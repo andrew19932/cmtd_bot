@@ -7,6 +7,7 @@ const COMMAND_TEMPLATE2 = 'template2';
 const COMMAND_TEMPLATE3 = 'template3';
 const COMMAND_TEMPLATE4 = 'template4';
 const COMMAND_TEMPLATE5 = 'template5';
+const COMMAND_TEMPLATE6 = 'template6';
 let inline_keyboard = [
     [
          {
