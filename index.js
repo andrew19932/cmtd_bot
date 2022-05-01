@@ -42,7 +42,7 @@ let inline_keyboard = [
           callback_data: COMMAND_TEMPLATE6
       },
     ],
-    [  
+    [
       {
           text: 'Неонатологія',
           callback_data: COMMAND_TEMPLATE7
@@ -71,7 +71,7 @@ bot.setMyCommands([
 function process_message(text, chatId) {
   try {
       if (text === '/start') {
-          return bot.sendMessage(chatId, "Вітаємо в телеграм-боті КПМ ВМКЛ ЦМ та Д.\nВ розділі меню оберіть пункт, який Вас цікавить:", {
+          return bot.sendMessage(chatId, "Вітаємо в телеграм-боті ВМКЛ Центр Матері та Дитини.\nВ розділі МЕНЮ-контактна інформація закладу.\nОберіть пункт, який Вас цікавить:", {
               "reply_markup": {
                   "inline_keyboard": inline_keyboard
               }
