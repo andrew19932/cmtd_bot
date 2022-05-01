@@ -37,8 +37,8 @@ let inline_keyboard = [
 const options = {
     polling: true
 };
-const bot = new TelegramBot(process.env.TELEGRAM_TOKEN, options);
-
+// const bot = new TelegramBot(process.env.TELEGRAM_TOKEN, options);
+const bot = new TelegramBot('5397416186:AAEJ0k3OV8lBkckoVon1bio127fmwIrpyyY', options);
 
 bot.setMyCommands([
   {command: '/start', description: 'Домашня сторінка'},
