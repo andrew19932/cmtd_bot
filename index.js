@@ -38,7 +38,7 @@ let inline_keyboard = [
           text: 'Мамологія',
           callback_data: COMMAND_TEMPLATE6
       }
-    ]
+    ],
 ];
 const options = {
     polling: true
@@ -48,9 +48,9 @@ const bot = new TelegramBot('5397416186:AAEJ0k3OV8lBkckoVon1bio127fmwIrpyyY', op
 
 bot.setMyCommands([
   {command: '/start', description: 'Домашня сторінка'},
-  {command: '/ginecology_help', description: 'Акушерсько-гінекологічна домопога'},
-  {command: '/women_consultation', description: 'Жіноча консультація'},
-  {command: '/therapy', description: 'Терапія'},
+  // {command: '/ginecology_help', description: 'Акушерсько-гінекологічна домопога'},
+  // {command: '/women_consultation', description: 'Жіноча консультація'},
+  // {command: '/therapy', description: 'Терапія'},
   {command: '/contacts', description: 'Контактні дані'},
 ])
 
