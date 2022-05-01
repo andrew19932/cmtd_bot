@@ -132,7 +132,7 @@ bot.on('callback_query', function onCallbackQuery(callbackQuery) {
   if (action === COMMAND_TEMPLATE7) {
     return bot.sendMessage(msg.chat.id, `Секція неонатології.\nОберіть зі списку лікаря-неонатогола, до якого бажаєте звернутися:`);
   }
-  if (action === COMMAND_TEMPLATE7) {
+  if (action === COMMAND_TEMPLATE8) {
     return bot.sendMessage(msg.chat.id, `Підтримка грудного вигодовування.\nТут ви можете задати питання фахівцям з грудного вигодовування:`);
   }
 });
