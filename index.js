@@ -8,6 +8,8 @@ const COMMAND_TEMPLATE3 = 'template3';
 const COMMAND_TEMPLATE4 = 'template4';
 const COMMAND_TEMPLATE5 = 'template5';
 const COMMAND_TEMPLATE6 = 'template6';
+const COMMAND_TEMPLATE7 = 'template7';
+const COMMAND_TEMPLATE8 = 'template8';
 let inline_keyboard = [
     [
          {
@@ -38,7 +40,16 @@ let inline_keyboard = [
       {
           text: 'Мамологія',
           callback_data: COMMAND_TEMPLATE6
-      }
+      },
+      {
+          text: 'Неонатологія',
+          callback_data: COMMAND_TEMPLATE7
+      },
+      {
+          text: 'Підтримка грудного вигодовування',
+          callback_data: COMMAND_TEMPLATE8
+      },
+
     ],
 ];
 const options = {
@@ -77,14 +88,10 @@ function process_message(text, chatId) {
       //     return bot.sendMessage(chatId, `Секція жіночої консультації.\nУ нас працюють кваліфіковані акушери-гінекологи, яким Ви можете довіритися. Лікарі з дуже великим стажем роботи, що пройшли тренінги, які володіють усіма сучасними методами прийому пологів\nКонтактна інформація - @VivcharykNV`);
       // }
       if (text === '/contacts') {
-          return bot.sendMessage(chatId, ` Директор	Присяжнюк Володимир Петрович	65 11 12 \n
-                                           \n Медичний директор	Бардаш Леся Юріївна	65 11 22 \n
-                                           \n Заступник медичного директора з педіатрії	Опіопченко Світлана Федорівна	65 11 12 \n
-                                           \n Заступник директора з економічних питань	Дунаєва Ірина Дмитрівна	65 11 20\n
-                                           \nЗаступник директора з технічних питань	Руденко Марина Олександрівна	65 11 23\n
-                                           \nГоловна медична сестра	Коваль Ірина Анатоліївна	65 11 36\n
-                                           \nГоловний бухгалтер	Костюк Людмила Володимирівна	65 11 19\n
-                                           \nНачальник відділу кадрів	Ключківська Тетяна Володимирівна	65 11 36\n`);
+          return bot.sendMessage(chatId, ` Директор	Присяжнюк Володимир Петрович	(0432) 65 11 12 \n
+                                           \nРеєстратура АДВ(педіатрія) (0432) 65-11-13\n
+                                           \nКлініка, дружня до молоді (0432) 27-33-85\n
+                                           \nРеєстратура Жіночої консультації 0988518082\n`);
       }
       return bot.sendMessage(chatId, 'Не зрозуміла команда спробуй ще раз!)');
   } catch (e) {
@@ -105,21 +112,27 @@ bot.on('callback_query', function onCallbackQuery(callbackQuery) {
   const msg = callbackQuery.message;
 
   if (action === COMMAND_TEMPLATE1) {
-    return bot.sendMessage(msg.chat.id, `Секція гінекології.\nСписок лікарів-гінекологів яким ви можете задати питання:`);
+    return bot.sendMessage(msg.chat.id, `Секція гінекології.\nОберіть зі списку лікаря-гінеколога, до якого бажаєте звернутися:`);
   }
   if (action === COMMAND_TEMPLATE2) {
     return bot.sendMessage(msg.chat.id, `Секція педіатрії.\nОберіть зі списку лікаря-педіатра або вузького спеціаліста, до якого бажаєте звернутися:`);
   }
   if (action === COMMAND_TEMPLATE3) {
-    return bot.sendMessage(msg.chat.id, `Секція жіночої консультації.\nТут ви можете задати питання акушеру-гінекологу з приводу ведення вагідності, постановки на облік, та ін.\nСписок акушерів-гінекологів:`);
+    return bot.sendMessage(msg.chat.id, `Секція жіночої консультації.\nТут ви можете задати питання акушеру-гінекологу з приводу ведення вагітності, постановки на облік та ін.\nОберіть зі списку лікаря, до якого бажаєте звернутися:`);
   }
   if (action === COMMAND_TEMPLATE4) {
-    return bot.sendMessage(msg.chat.id, `Секція терапії.\nТерапевтична допомога вагідним, роділлям та породіллям.\nТерапевт Вівчарик Наталія Василівна.\nКонтактна інформація - @VivcharykNV`);
+    return bot.sendMessage(msg.chat.id, `Секція терапії.\nТерапевтична допомога вагітним, роділлям та породіллям.\nОберіть зі списку лікаря, до якого бажаєте звернутися:\nТерапевт Вівчарик Наталія Василівна.Контактна інформація - @VivcharykNV`);
   }
   if (action === COMMAND_TEMPLATE5) {
     return bot.sendMessage(msg.chat.id, `Секція дитячої та підліткової гінекології.\nОберіть зі списку лікаря, до якого бажаєте звернутися:`);
   }
   if (action === COMMAND_TEMPLATE6) {
     return bot.sendMessage(msg.chat.id, `Секція мамології.\nОберіть зі списку лікаря, до якого бажаєте звернутися:`);
+  }
+  if (action === COMMAND_TEMPLATE7) {
+    return bot.sendMessage(msg.chat.id, `Секція неонатології.\nОберіть зі списку лікаря-неонатогола, до якого бажаєте звернутися:`);
+  }
+  if (action === COMMAND_TEMPLATE7) {
+    return bot.sendMessage(msg.chat.id, `Підтримка грудного вигодовування.\nТут ви можете задати питання фахівцям з грудного вигодовування:`);
   }
 });
