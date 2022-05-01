@@ -17,30 +17,32 @@ let inline_keyboard = [
             callback_data: COMMAND_TEMPLATE1
         },
         {
-            text: 'Педіатрія',
-            callback_data: COMMAND_TEMPLATE2
+            text: 'Жіноча консультація',
+            callback_data: COMMAND_TEMPLATE3
         }
 
     ],[
         {
-            text: 'Жіноча консультація',
-            callback_data: COMMAND_TEMPLATE3
+            text: 'Педіатрія',
+            callback_data: COMMAND_TEMPLATE2
         },
         {
             text: 'Терапія',
             callback_data: COMMAND_TEMPLATE4
         },
-        {
-            text: 'Дитяча та підліткова гінекологія',
-            callback_data: COMMAND_TEMPLATE5
-        }
 
     ],
     [
       {
+          text: 'Дитяча та підліткова гінекологія',
+          callback_data: COMMAND_TEMPLATE5
+      },
+      {
           text: 'Мамологія',
           callback_data: COMMAND_TEMPLATE6
       },
+    ],
+    [  
       {
           text: 'Неонатологія',
           callback_data: COMMAND_TEMPLATE7
