@@ -57,14 +57,10 @@ let inline_keyboard = [
 const options = {
     polling: true
 };
-// const bot = new TelegramBot(process.env.TELEGRAM_TOKEN, options);
 const bot = new TelegramBot('5397416186:AAEJ0k3OV8lBkckoVon1bio127fmwIrpyyY', options);
 
 bot.setMyCommands([
   {command: '/start', description: 'Домашня сторінка'},
-  // {command: '/ginecology_help', description: 'Акушерсько-гінекологічна домопога'},
-  // {command: '/women_consultation', description: 'Жіноча консультація'},
-  // {command: '/therapy', description: 'Терапія'},
   {command: '/contacts', description: 'Контактні дані'},
 ])
 
@@ -77,18 +73,6 @@ function process_message(text, chatId) {
               }
           });
       }
-      // if (text === '/hinecology_help') {
-      //     return bot.sendMessage(chatId, `Акушерсько-гінекологічна домопога.\nЛікарі центру проводять комплексну роботу з кожним пацієнтом, що включає консультацію, діагностику на сучасному обладнанні. Це дозволяє підібрати підходи для ефективного лікування.\nКонтактна інформація - mlcentr@ukr.net`);
-      // }
-      // if (text === '/ginecology_help') {
-      //     return bot.sendMessage(chatId, `Акушерсько-гінекологічна домопога.\nЛікарі центру проводять комплексну роботу з кожним пацієнтом, що включає консультацію, діагностику на сучасному обладнанні. Це дозволяє підібрати підходи для ефективного лікування.\nКонтактна інформація - mlcentr@ukr.net`);
-      // }
-      // if (text === '/therapy') {
-      //     return bot.sendMessage(chatId, `Секція терапії.\nТерапевт Вівчарик Налатія Василівна.\nКонтактна інформація - @VivcharykNV`);
-      // }
-      // if (text === '/women_consultation') {
-      //     return bot.sendMessage(chatId, `Секція жіночої консультації.\nУ нас працюють кваліфіковані акушери-гінекологи, яким Ви можете довіритися. Лікарі з дуже великим стажем роботи, що пройшли тренінги, які володіють усіма сучасними методами прийому пологів\nКонтактна інформація - @VivcharykNV`);
-      // }
       if (text === '/contacts') {
           return bot.sendMessage(chatId, ` Директор:	Присяжнюк Володимир Петрович	(0432) 65 11 12 \n
                                            \nРеєстратура: АДВ(педіатрія) (0432) 65-11-13\n
