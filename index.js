@@ -114,7 +114,7 @@ bot.on('callback_query', function onCallbackQuery(callbackQuery) {
   const msg = callbackQuery.message;
 
   if (action === COMMAND_TEMPLATE1) {
-    return bot.sendMessage(msg.chat.id, `Секція гінекології.\nОберіть зі списку лікаря-гінеколога, до якого бажаєте звернутися:\nІщук Станіслав Іванович- @IshchukSI\nДворніцька Марія Миколіївна- @DvornitskaMM\nКоцулівська Владислава Юріівна- @kotsulivska\nСоловей Олена Анатоліївна- @soloveyelena\nЗаболотна Оксана Анатоліївна- @ZabolotnaOksana\nСморода Олена Леонідівна- @SmorodaOlena`);
+    return bot.sendMessage(msg.chat.id, `Секція гінекології.\nОберіть зі списку лікаря-гінеколога, до якого бажаєте звернутися:\n\nІщук Станіслав Іванович- @IshchukSI\nДворніцька Марія Миколіївна- @DvornitskaMM\nКоцулівська Владислава Юріівна- @kotsulivska\nСоловей Олена Анатоліївна- @soloveyelena\nЗаболотна Оксана Анатоліївна- @ZabolotnaOksana\nСморода Олена Леонідівна- @SmorodaOlena`);
   }
   if (action === COMMAND_TEMPLATE2) {
     return bot.sendMessage(msg.chat.id, `Секція педіатрії.\nОберіть зі списку лікаря-педіатра або вузького спеціаліста, до якого бажаєте звернутися:\nПедіатр: Бойчук Денис Віталійович- @dr_denbo\nДитячий алерголог: Бучинська Алла Анатолієвна- @BuchinskayaAnya\nДитячий кардіолог: Росощук Оксана Володимирівна- @RososhchukO\nДитячий офтальмолог: Істоміна Ірина Геннадіївна- @istominairina6\nДитячий невролог: Тхорівська Олена Миколаївна - @tkhorivska\nДитячий невролог: Мутигулліна Марія Андріївна- @MutyhullinaMariya\nДитячий невролог: Бойко Надія Сергіївна- @BoikoNadia\nДитячий ортопед-травматолог: Котик Сергій Валерійович- @SerhiiKotyk\nДитячий ортопед-травматолог: Бойко Ігор Михайлович- @Boiko_IM\nДитячий хірург: Мельничук Олександр Васильович- @MelnychukOV`);
